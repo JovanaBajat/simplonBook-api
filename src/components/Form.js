@@ -3,7 +3,6 @@ import '../App.css';
 
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
-import Divider from 'material-ui/Divider';
 
 class Form extends Component {
 
@@ -36,7 +35,6 @@ class Form extends Component {
       /><br />
     <RaisedButton label="Submit" type="submit" primary={true} style={style}/>
   </form>
-      <Divider />
     </div>
     );
   }

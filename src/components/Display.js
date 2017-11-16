@@ -1,16 +1,33 @@
 import React, { Component } from 'react';
 
 import RaisedButton from 'material-ui/RaisedButton';
-import Divider from 'material-ui/Divider';
+import Dialog from 'material-ui/Dialog';
+
+import Form from './Form';
+
 
 class Display extends Component {
+  constructor(props) {
+  super(props);
+  this.state = {
+    open : false
+  }
+}
+
+handleOpen = () => {
+this.setState({open: true});
+};
+
+handleClose = () => {
+this.setState({open: false});
+};
 
   render() {
     const style = {
   margin: 12,
 };
     return (
-      <div>
+      <div className="displayBody">
         <ul>{this.props.books.map((book, index) => {
           return(
             <li key={index}>
@@ -22,8 +39,15 @@ class Display extends Component {
               <a href={`http://localhost:8080/simplonBook/${book._id}/delete`}>
                   <RaisedButton label="Delete" primary={true} style={style} />
               </a>
-            <RaisedButton label="Edit" primary={true} style={style} />
-                <Divider />
+            <RaisedButton onClick={this.handleOpen} label="Edit" primary={true} style={style} />
+            <Dialog
+              title="Edit book"
+              modal={false}
+              open={this.state.open}
+              onRequestClose={this.handleClose}>
+
+              <Form action={`http://localhost:8080/simplonBook/${book._id}/update`}/>
+            </Dialog>
             </li>
           )
         })}

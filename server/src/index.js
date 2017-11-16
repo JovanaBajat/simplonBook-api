@@ -11,6 +11,7 @@ mongoose.connect(config.mongoUrl, () => {
   console.log("Database is now connected");
 });
 
+// app.use(express.json());
 app.use(express.urlencoded({extended : true}));
 app.use(cors());
 app.use('/simplonBook', router);

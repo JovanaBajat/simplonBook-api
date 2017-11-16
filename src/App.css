@@ -1,5 +1,6 @@
 body{
   text-align: center;
+
 }
 .form-group {
   width: 30% !important;
@@ -7,4 +8,12 @@ body{
 }
 li {
   list-style-type: none;
+  border: 1px solid black;
+  margin: 20px;
+  padding: 20px;
+}
+ul{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
